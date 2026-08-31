@@ -7,5 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/Dependencies" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/Dependencies" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" scope="RUNTIME" name="sqlite" level="project" />
+    <orderEntry type="library" exported="" name="gson" level="project" />
   </component>
 </module>
