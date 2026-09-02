@@ -21,7 +21,7 @@ import static java.lang.Math.abs;
 public class Main {
     public static final String databaseUrl = "jdbc:sqlite:" + "database.db";
     public static chatHandler chatHandler = new chatHandler();
-
+    public static rateLimiter rateLimiter = new rateLimiter(10, 1000);
     public static HttpServer httpServer;
 
     static void main(String[] args) {
@@ -34,7 +34,7 @@ public class Main {
 
     public static void start() throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(8080), 0);
-        httpServer.createContext("/api/login", new chatLoginHandler());
+        httpServer.createContext("/api/login", new LoginHandler());
         httpServer.setExecutor(null);
         httpServer.start();
         chatHandler.login("test", "test");
@@ -56,6 +56,10 @@ public class Main {
         public void handle(HttpExchange exchange) throws IOException {
             if (!exchange.getRequestMethod().equals("POST")) {
                 exchange.sendResponseHeaders(405, 0);
+            }
+            if (!rateLimiter.isAllowed(exchange.getRemoteAddress())) {
+                exchange.sendResponseHeaders(405, 0);
+                return;
             }
             String body = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
             JsonObject object = JsonParser.parseString(body).getAsJsonObject();
@@ -108,22 +112,8 @@ public class Main {
     }
 
 
-    public static class chatLoginHandler implements HttpHandler {
-
-        @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            if (!exchange.getRequestMethod().equals("POST")) {
-                exchange.sendResponseHeaders(405, 0);
-            }
-            String body = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
-            JsonObject object = JsonParser.parseString(body).getAsJsonObject();
-
-            exchange.sendResponseHeaders(405, 0);
-            exchange.getResponseBody().close();
-        }
 
 
-    }
 
 
 

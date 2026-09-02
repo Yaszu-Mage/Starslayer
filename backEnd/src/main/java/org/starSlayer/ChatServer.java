@@ -59,7 +59,7 @@ public class ChatServer extends WebSocketServer {
                     stmt.execute();
                     JsonArray json = new JsonArray();
                     json.add(uuid);
-                    json.add(Instant.EPOCH.getEpochSecond());
+                    json.add(Instant.now().getEpochSecond());
                     json.add(message);
                     conn.send(json.toString());
                 } catch (SQLException e) {

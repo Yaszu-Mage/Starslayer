@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="25" />
+    <bytecodeTargetLevel target="25">
+      <module name="main" target="25" />
+      <module name="StarSlayer" target="25" />
+      <module name="StarSlayer.main" target="25" />
+      <module name="StarSlayer.test" target="25" />
+    </bytecodeTargetLevel>
   </component>
 </project>

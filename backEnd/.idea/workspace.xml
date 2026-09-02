@@ -3,8 +3,21 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc8d97e-895a-4974-a272-4201e19448b1" name="Changes" comment="" />
+    <list default="true" id="9fc8d97e-895a-4974-a272-4201e19448b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/rateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +25,12 @@
   </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
+      <entry key="_C:/Users/yaszu/Documents/GitHub/Starslayer/backEnd" value="3IkMdtLIBgoNuZpwQ0DaQajaZZ4" />
       <entry key="_C:/Users/yaszu/Documents/Tower/backEnd/backend" value="3IkMXiYqh3vOwmJHv2C8fIhlEIZ" />
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="28" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExternalProjectsData">
@@ -23,17 +38,95 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Yaszu-Mage&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Yaszu-Mage/Starslayer.git&quot;,
+    &quot;accountId&quot;: &quot;059b17f0-56f5-4b85-8c78-7921dcb2bc2e&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6,
-  "fromUser": false
-}]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000559948465" />
+      <entry key="S5" value="1.0113480843664386" />
+      <entry key="S10" value="1.7038908520323832" />
+      <entry key="S30" value="12.217526766787422" />
+      <entry key="S60" value="23.629156783326426" />
+      <entry key="M2" value="36.089684644629784" />
+      <entry key="M5" value="65.04278531897674" />
+      <entry key="M10" value="100.48107577548666" />
+      <entry key="M15" value="126.53263641082347" />
+      <entry key="M30" value="178.802812169806" />
+      <entry key="H1" value="244.09813153829361" />
+      <entry key="H2" value="320.8055282917852" />
+      <entry key="H4" value="389.6776324196761" />
+      <entry key="D1" value="476.90760349126566" />
+      <entry key="W1" value="495.73086505299403" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.228329447105648E-185" />
+      <entry key="S2" value="5.920095544457511E-47" />
+      <entry key="S5" value="3.227984839423595E-19" />
+      <entry key="S10" value="5.681535749265969E-10" />
+      <entry key="S30" value="8.296216809684607E-4" />
+      <entry key="S60" value="0.030441965239062316" />
+      <entry key="M2" value="0.22811091843415301" />
+      <entry key="M5" value="1.2915076834853019" />
+      <entry key="M10" value="4.696677130691021" />
+      <entry key="M15" value="8.943092795254454" />
+      <entry key="M30" value="20.578700773465975" />
+      <entry key="H1" value="38.19317698490993" />
+      <entry key="H2" value="59.5512184654496" />
+      <entry key="H4" value="78.4797933109523" />
+      <entry key="D1" value="102.07877391764882" />
+      <entry key="W1" value="107.12505744134681" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.0408140768651804E-4" />
+      <entry key="MS500" value="0.15976242040038144" />
+      <entry key="S2" value="0.6322206781186249" />
+      <entry key="S5" value="0.8437687036525523" />
+      <entry key="S10" value="1.6159909747544965" />
+      <entry key="S30" value="12.186501620248768" />
+      <entry key="S60" value="23.63810044675202" />
+      <entry key="M2" value="36.29413561237499" />
+      <entry key="M5" value="66.30943130827485" />
+      <entry key="M10" value="105.14909321347935" />
+      <entry key="M15" value="135.4421716442981" />
+      <entry key="M30" value="199.34191377407285" />
+      <entry key="H1" value="282.25296365213393" />
+      <entry key="H2" value="380.3264814335459" />
+      <entry key="H4" value="468.1374915386103" />
+      <entry key="D1" value="578.982076069854" />
+      <entry key="W1" value="602.8552784162947" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3IkMXiYqh3vOwmJHv2C8fIhlEIZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +134,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.backEnd [:org.starSlayer.Main.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -48,14 +142,56 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/yaszu/Documents/Tower/backEnd/backend/src/main/java/org/starSlayer/Main.java",
+    "settings.editor.selected.configurable": "ml.llm.LLMThirdPartyAiProvidersConfigurable",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.starSlayer.Main" />
+      <module name="backend.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.starSlayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="main" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,21 +208,21 @@
       <option name="presentableId" value="Default" />
       <updated>1788304157819</updated>
       <workItem from="1788304161829" duration="2000" />
+      <workItem from="1788304205020" duration="10525000" />
+      <workItem from="1788319160925" duration="2796000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/starSlayer/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

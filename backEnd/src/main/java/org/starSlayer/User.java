@@ -1,5 +1,6 @@
 package org.starSlayer;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.gson.JsonObject;
 
 import java.sql.Connection;
@@ -82,7 +83,8 @@ public class User {
             assert conn != null;
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
             statement.setString(1, username);
-            statement.setString(2, password);
+            String hash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+            statement.setString(2, hash);
             statement.execute();
             try (var rs = statement.executeQuery()) {
                 return rs.next();
@@ -112,6 +114,7 @@ public class User {
             PreparedStatement statement = conn.prepareStatement("INSERT INTO users (username,displayName, password) VALUES (?, ?,?)");
             statement.setString(1, username);
             statement.setString(2, username);
+            password = BCrypt.withDefaults().hashToString(12, password.toCharArray());
             statement.setString(3, password);
             statement.execute();
             conn.close();
