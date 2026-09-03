@@ -31,15 +31,16 @@ public class Main {
             start();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static void start() throws IOException {
+    public static void start() throws IOException, SQLException {
         httpServer = HttpServer.create(new InetSocketAddress(8080), 0);
         httpServer.createContext("/api/login", new LoginHandler());
         httpServer.setExecutor(null);
         httpServer.start();
-        chatHandler.login("baller","baller");
         webSocketServer.start();
         roomHandler.createRoom("general","","",-1,false,null);
         IO.println(profanityFilterInstance.isProfane("f4ck"));
@@ -57,6 +58,7 @@ public class Main {
          */
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            IO.println("Login request received");
             if (!exchange.getRequestMethod().equals("POST")) {
                 exchange.sendResponseHeaders(405, 0);
             }
@@ -78,7 +80,7 @@ public class Main {
                             PreparedStatement statement = connection.prepareStatement("INSERT INTO sessions (session_key, username,timestamp) VALUES (?, ?,?)");
                             statement.setString(1, key);
                             statement.setString(2, username);
-                            statement.setInt(3, LocalTime.now().getHour());
+                            statement.setLong(3, Instant.now().getEpochSecond());
                             statement.execute();
                         } catch (SQLException e) {
                             throw new RuntimeException(e);
@@ -98,12 +100,32 @@ public class Main {
     }
 
 
+    public static void restoreRooms () {
+        try (Connection conn = connect()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM rooms");
+            stmt.execute();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String password = rs.getString("password");
+                int maxUsers = rs.getInt("maxUsers");
+                boolean isPrivate = rs.getInt("isPrivate") == 1;
+                roomHandler.createRoom(name, password, description, maxUsers, isPrivate, null);
+            }
+        } catch (Exception e) {
+            IO.println("Failed to restore rooms");
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     public static Connection connect() {
         try {
             var conn = DriverManager.getConnection(databaseUrl);
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, displayName TEXT, password TEXT)").execute();
-            conn.prepareStatement("CREATE TABLE IF NOT EXISTS rooms (name TEXT PRIMARY KEY, isPrivate INT, description TEXT, password TEXT)").execute();
+            conn.prepareStatement("CREATE TABLE IF NOT EXISTS rooms (name TEXT PRIMARY KEY, isPrivate INT, description TEXT, password TEXT, maxUsers INT, ownerName TEXT)").execute();
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, message TEXT, timestamp INTEGER, uuid TEXT, room TEXT)").execute();
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS sessions (session_key TEXT PRIMARY KEY, username TEXT, timestamp INTEGER)").execute();
             IO.println("Connection to SQLite has been established.");

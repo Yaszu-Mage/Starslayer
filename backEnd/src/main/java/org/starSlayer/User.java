@@ -59,6 +59,18 @@ public class User {
         return username;
     }
 
+    public boolean isNameTaken(String name) {
+        try (Connection conn = connect()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT 1 FROM users WHERE username = ?");
+            stmt.setString(1, name);
+            stmt.execute();
+            return stmt.getResultSet().next();
+        } catch (Exception _) {
+            return false;
+        }
+    }
+
+
     public boolean isRegistered() {
         try {
             Connection conn = connect();

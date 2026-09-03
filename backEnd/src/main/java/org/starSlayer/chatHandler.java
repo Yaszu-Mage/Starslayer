@@ -20,20 +20,21 @@ public class chatHandler {
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM sessions WHERE session_key = ? AND username = ?");
                 statement.setString(1, sessionKey);
                 statement.setString(2, username);
-                statement.execute();
                 try (var rs = statement.executeQuery()) {
-                    int seconds = statement.getResultSet().getInt("timestamp");
-                    Instant.now();
+                    if (!rs.next()) {
+                        return false;
+                    }
+                    long seconds = rs.getLong("timestamp");
                     Instant instant = Instant.ofEpochSecond(seconds);
-                    boolean isLasting = instant.isAfter(Instant.now().plus(4, ChronoUnit.HOURS));
-                    if (!isLasting) {
+                    boolean isExpired = instant.isBefore(Instant.now().minus(4, ChronoUnit.HOURS));
+                    if (isExpired) {
                         PreparedStatement stmt = connection.prepareStatement("DELETE FROM sessions WHERE session_key = ? AND username = ?");
                         stmt.setString(1, sessionKey);
                         stmt.setString(2, username);
                         stmt.execute();
                         return false;
                     }
-                    return rs.next();
+                    return true;
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -59,4 +60,3 @@ public class chatHandler {
 
 
     }
-

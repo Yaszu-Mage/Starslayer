@@ -8,7 +8,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static org.starSlayer.Main.connect;
 
@@ -23,8 +27,13 @@ public class roomHandler {
     public void addUser(Room room, WebSocket user) {
         room.users.add(user);
     }
-    public static void addRoom(Room room) {
+    public static void addRoom(Room room) throws SQLException {
         activeRooms.add(room);
+        try (Connection conn = connect()) {
+            conn.prepareStatement("INSERT INTO rooms (name,password,description,maxUsers,isPrivate) VALUES (?,?,?,?,?)").execute();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public static Room getUsersRoom(WebSocket user) {
         for (Room room : activeRooms) {
@@ -37,7 +46,7 @@ public class roomHandler {
 
 
 
-    public static Room createRoom(String name, String password,String description, int maxUsers, boolean isPrivate,WebSocket user) {
+    public static Room createRoom(String name, String password,String description, int maxUsers, boolean isPrivate,WebSocket user) throws SQLException {
         Room room = new Room(name, password,description, maxUsers, isPrivate);
         addRoom(room);
         if (user != null) {
@@ -71,6 +80,9 @@ public class roomHandler {
             return users.size();
         }
         public boolean isFull() {
+            if (maxUsers == -1) {
+                return false;
+            }
             return userCount() >= maxUsers;
         }
 
@@ -86,21 +98,21 @@ public class roomHandler {
         public void sendMessage(String message) {
             JsonObject json = JsonParser.parseString(message).getAsJsonObject();
             String messageTxt = json.get("message").getAsString();
-//            HttpRequest request = HttpRequest.newBuilder()
-//                    .uri(URI.create(""))
-//                    .header("Accept","application/json")
-//                    .POST(HttpRequest.BodyPublishers.ofString())
-//                    .build();
-
-
             try (Connection conn = connect()) {
-                conn.prepareStatement("INSERT INTO messages (username,message,timestamp,uuid,room) VALUES (?,?,?,?,?)");
+                PreparedStatement stmt = conn.prepareStatement("INSERT INTO messages (username,message,timestamp,uuid,room) VALUES (?,?,?,?,?)");
+                stmt.setString(1, json.get("username").getAsString());
+                stmt.setString(2, messageTxt);
+                stmt.setLong(3, Instant.now().getEpochSecond());
+                UUID uuid = UUID.randomUUID();
+                stmt.setString(4, uuid.toString());
+                stmt.setString(5, name);
+                stmt.execute();
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
             for (WebSocket user : users) {
-                user.send(message);
+                user.send(messageTxt);
             }
         }
 

@@ -49,6 +49,7 @@ public class webSocketServer extends WebSocketServer {
      * message : String,
      * username : String,
      * sessionKey : String
+     * type : String
      * @throws IOException
      */
     @Override
@@ -66,16 +67,23 @@ public class webSocketServer extends WebSocketServer {
                     information.get("roomName").getAsString();
                     String description = information.get("roomDescription").getAsString();
                     String password = information.get("roomPassword").getAsString();
-
-
                 }
                 case UpdateType.ChatMessage -> {
                     String roomName = information.get("roomName").getAsString() != null ? information.get("roomName").getAsString() : "general";
                     roomHandler.Room room = roomHandler.getRoom(roomName);
+                    if (room == null) {
+                        try {
+                            room = org.starSlayer.roomHandler.createRoom("general","","",-1,false,conn);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                     room.sendMessage(message);
                 }
                 }
-            }
+            } else {
+            IO.println("Invalid session key");
+        }
 
     }
 

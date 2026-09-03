@@ -7,8 +7,16 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc8d97e-895a-4974-a272-4201e19448b1" name="Changes" comment="">
+    <list default="true" id="9fc8d97e-895a-4974-a272-4201e19448b1" name="Changes" comment="un needed">
+      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/chatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/chatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/roomHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/roomHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/starSlayer/webSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/starSlayer/webSocketServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +30,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6" />
+    <option name="cachedIndexableFilesCount" value="36" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExternalProjectsData">
@@ -92,73 +100,73 @@
     &quot;assignee&quot;: &quot;Yaszu-Mage&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Yaszu-Mage/Starslayer.git&quot;,
-    &quot;accountId&quot;: &quot;fa14a9ee-8236-44e7-a7d1-638448d7cd11&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Yaszu-Mage/Starslayer.git",
+    "accountId": "059b17f0-56f5-4b85-8c78-7921dcb2bc2e"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.000000012855563" />
-      <entry key="S5" value="1.0013506687372828" />
-      <entry key="S10" value="1.0780784324915793" />
-      <entry key="S30" value="4.909137033606635" />
-      <entry key="S60" value="14.433970563521664" />
-      <entry key="M2" value="28.574667593998083" />
-      <entry key="M5" value="59.91445296699578" />
-      <entry key="M10" value="97.06739110892484" />
-      <entry key="M15" value="124.11216562289538" />
-      <entry key="M30" value="177.9491921326755" />
-      <entry key="H1" value="244.4612770887796" />
-      <entry key="H2" value="322.07146765889615" />
-      <entry key="H4" value="391.6241902211932" />
-      <entry key="D1" value="479.6926852716464" />
-      <entry key="W1" value="498.69894951370486" />
+      <entry key="MS100" value="2.9918005973969913E-20" />
+      <entry key="MS500" value="1.7237697055533357E-4" />
+      <entry key="S2" value="0.1888601247168406" />
+      <entry key="S5" value="0.7768637331617685" />
+      <entry key="S10" value="1.2529900677954786" />
+      <entry key="S30" value="3.0973851286654375" />
+      <entry key="S60" value="7.901277397669006" />
+      <entry key="M2" value="15.212856460020205" />
+      <entry key="M5" value="27.46025561295413" />
+      <entry key="M10" value="42.07598466794857" />
+      <entry key="M15" value="56.69779202568094" />
+      <entry key="M30" value="106.06413805615006" />
+      <entry key="H1" value="192.53215502395136" />
+      <entry key="H2" value="303.1673459823813" />
+      <entry key="H4" value="407.49209648868754" />
+      <entry key="D1" value="546.5647292217576" />
+      <entry key="W1" value="577.5782243871106" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.52494643136874E-219" />
-      <entry key="S2" value="2.2416254164104667E-55" />
-      <entry key="S5" value="1.3811002912987885E-22" />
-      <entry key="S10" value="1.1752022355953801E-11" />
-      <entry key="S30" value="2.277346156005863E-4" />
-      <entry key="S60" value="0.015949503317085244" />
-      <entry key="M2" value="0.16511377692789006" />
-      <entry key="M5" value="1.1348850884621777" />
-      <entry key="M10" value="4.402690471665464" />
-      <entry key="M15" value="8.565894126624766" />
-      <entry key="M30" value="20.140044921795514" />
-      <entry key="H1" value="37.78392118459248" />
-      <entry key="H2" value="59.231301089658615" />
-      <entry key="H4" value="78.26870728542657" />
-      <entry key="D1" value="102.03296256977247" />
-      <entry key="W1" value="107.11818811422332" />
+      <entry key="MS100" value="1.000025840616222" />
+      <entry key="MS500" value="1.1209095412017416" />
+      <entry key="S2" value="1.589678296130608" />
+      <entry key="S5" value="1.8095544388403932" />
+      <entry key="S10" value="1.89982935299965" />
+      <entry key="S30" value="2.053747312476928" />
+      <entry key="S60" value="2.4982033026148076" />
+      <entry key="M2" value="3.31743116490965" />
+      <entry key="M5" value="5.619906805249763" />
+      <entry key="M10" value="8.966361025121456" />
+      <entry key="M15" value="11.577758613914588" />
+      <entry key="M30" value="19.261854229323895" />
+      <entry key="H1" value="35.27942615030754" />
+      <entry key="H2" value="59.528082104616225" />
+      <entry key="H4" value="84.13137144432697" />
+      <entry key="D1" value="118.01420282568441" />
+      <entry key="W1" value="125.66086539317945" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.029977003728914504" />
-      <entry key="MS500" value="0.49585836536914657" />
-      <entry key="S2" value="0.8391496483793185" />
-      <entry key="S5" value="0.9335277920810909" />
-      <entry key="S10" value="1.0415928786818789" />
-      <entry key="S30" value="4.888107587701625" />
-      <entry key="S60" value="14.431979624979443" />
-      <entry key="M2" value="28.719151393661956" />
-      <entry key="M5" value="61.02603863773739" />
-      <entry key="M10" value="101.44247981937639" />
-      <entry key="M15" value="132.64542465733552" />
-      <entry key="M30" value="198.05023438506745" />
-      <entry key="H1" value="282.2071401952535" />
-      <entry key="H2" value="381.27260389712995" />
-      <entry key="H4" value="469.8729858543635" />
-      <entry key="D1" value="581.7213432506844" />
-      <entry key="W1" value="605.816492850828" />
+      <entry key="MS100" value="2.8905606358570104E-4" />
+      <entry key="MS500" value="0.25515902128549944" />
+      <entry key="S2" value="1.277744953193884" />
+      <entry key="S5" value="2.223725897479007" />
+      <entry key="S10" value="2.901898720380716" />
+      <entry key="S30" value="5.0190101819984445" />
+      <entry key="S60" value="10.290874717225572" />
+      <entry key="M2" value="18.445900110539107" />
+      <entry key="M5" value="33.02339772613892" />
+      <entry key="M10" value="50.99752916211747" />
+      <entry key="M15" value="68.23628124501911" />
+      <entry key="M30" value="125.29150148481975" />
+      <entry key="H1" value="227.7779653957871" />
+      <entry key="H2" value="362.6661363270918" />
+      <entry key="H4" value="491.60256168170463" />
+      <entry key="D1" value="664.5740301079862" />
+      <entry key="W1" value="703.2383441706068" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -166,40 +174,58 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3IkMXiYqh3vOwmJHv2C8fIhlEIZ" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.backEnd [:org.starSlayer.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/yaszu/Documents/Tower/backEnd/backend/src/main/java/org/starSlayer/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMThirdPartyAiProvidersConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.backEnd [:org.starSlayer.Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/yaszu/Documents/Tower/backEnd/backend/src/main/java/org/starSlayer/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.starSlayer.Main" />
@@ -250,6 +276,7 @@
       <workItem from="1788304205020" duration="10525000" />
       <workItem from="1788319160925" duration="2796000" />
       <workItem from="1788363105241" duration="5964000" />
+      <workItem from="1788404679769" duration="3161000" />
     </task>
     <servers />
   </component>
