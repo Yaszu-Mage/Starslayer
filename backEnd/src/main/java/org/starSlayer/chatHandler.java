@@ -23,6 +23,7 @@ public class chatHandler {
                 statement.execute();
                 try (var rs = statement.executeQuery()) {
                     int seconds = statement.getResultSet().getInt("timestamp");
+                    Instant.now();
                     Instant instant = Instant.ofEpochSecond(seconds);
                     boolean isLasting = instant.isAfter(Instant.now().plus(4, ChronoUnit.HOURS));
                     if (!isLasting) {

@@ -1,1 +1,9 @@
-const socket = new Websocket('ws://localhost:8080');
+const wsUri = "wss://socket.yaszu.xyz:8081";
+
+
+
+const ws = new WebSocket(wsUri);
+
+ws.addEventListener("open", () => {
+    console.log("Connected to WebSocket server");
+});
