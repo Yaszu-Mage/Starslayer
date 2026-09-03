@@ -7,7 +7,6 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.server.WebSocketServer;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,9 +15,9 @@ import java.util.UUID;
 
 import static org.starSlayer.Main.connect;
 
-public class ChatServer extends WebSocketServer {
+public class webSocketServer extends WebSocketServer {
 
-    public ChatServer(int port) {
+    public webSocketServer(int port) {
         super(new java.net.InetSocketAddress(port));
     }
 
@@ -32,6 +31,18 @@ public class ChatServer extends WebSocketServer {
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         System.out.println("Closed connection to " + conn.getRemoteSocketAddress() + " with exit code " + code + " additional info: " + reason);
     }
+
+    roomHandler roomHandler = new roomHandler();
+
+
+    enum UpdateType {
+        ChatMessage,
+        RoomCreation,
+        RoomRemoval,
+        RoomJoin,
+        RoomLeave,
+    }
+
     /**
      * Data should be held
      * {
@@ -43,27 +54,26 @@ public class ChatServer extends WebSocketServer {
     @Override
     public void onMessage(WebSocket conn, String message) {
         System.out.println("Received message from " + conn.getRemoteSocketAddress() + ": " + message);
-        // Broadcast the message to all connected clients
         JsonObject information = JsonParser.parseString(message).getAsJsonObject();
+        UpdateType updateType = UpdateType.valueOf(information.get("updatetype").getAsString());
         String key = information.get("key").getAsString();
         String username = information.get("username").getAsString();
-        String messageText = information.get("message").getAsString();
-            if (chatHandler.isSessionValid(key, username)) {
-                String uuid = UUID.randomUUID().toString();
-                try (Connection connection = connect()) {
-                    PreparedStatement stmt = connection.prepareStatement("INSERT INTO messages (username, message, timestamp,uuid) VALUES (?, ?, ?,?)");
-                    stmt.setString(1, username);
-                    stmt.setString(2, message);
-                    stmt.setLong(3, Instant.EPOCH.getEpochSecond());
-                    stmt.setString(4, uuid);
-                    stmt.execute();
-                    JsonArray json = new JsonArray();
-                    json.add(uuid);
-                    json.add(Instant.now().getEpochSecond());
-                    json.add(message);
-                    conn.send(json.toString());
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+        if (chatHandler.isSessionValid(key, username)) {
+
+
+            switch (updateType) {
+                case RoomCreation -> {
+                    information.get("roomName").getAsString();
+                    String description = information.get("roomDescription").getAsString();
+                    String password = information.get("roomPassword").getAsString();
+
+
+                }
+                case UpdateType.ChatMessage -> {
+                    String roomName = information.get("roomName").getAsString() != null ? information.get("roomName").getAsString() : "general";
+                    roomHandler.Room room = roomHandler.getRoom(roomName);
+                    room.sendMessage(message);
+                }
                 }
             }
 

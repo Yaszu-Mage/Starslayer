@@ -23,6 +23,8 @@ public class Main {
     public static chatHandler chatHandler = new chatHandler();
     public static rateLimiter rateLimiter = new rateLimiter(10, 1000);
     public static HttpServer httpServer;
+    public static webSocketServer webSocketServer = new webSocketServer(8081);
+    public static profanityFilter profanityFilterInstance = new profanityFilter();
 
     static void main(String[] args) {
         try {
@@ -37,9 +39,10 @@ public class Main {
         httpServer.createContext("/api/login", new LoginHandler());
         httpServer.setExecutor(null);
         httpServer.start();
-        chatHandler.login("test", "test");
-        chatHandler.login("test", "incorrect ' OR 1=1");
-
+        chatHandler.login("baller","baller");
+        webSocketServer.start();
+        roomHandler.createRoom("general","","",-1,false,null);
+        IO.println(profanityFilterInstance.isProfane("f4ck"));
     }
 
 
@@ -100,7 +103,8 @@ public class Main {
         try {
             var conn = DriverManager.getConnection(databaseUrl);
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, displayName TEXT, password TEXT)").execute();
-            conn.prepareStatement("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, message TEXT, timestamp INTEGER, uuid TEXT)").execute();
+            conn.prepareStatement("CREATE TABLE IF NOT EXISTS rooms (name TEXT PRIMARY KEY, isPrivate INT, description TEXT, password TEXT)").execute();
+            conn.prepareStatement("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, message TEXT, timestamp INTEGER, uuid TEXT, room TEXT)").execute();
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS sessions (session_key TEXT PRIMARY KEY, username TEXT, timestamp INTEGER)").execute();
             IO.println("Connection to SQLite has been established.");
             return conn;

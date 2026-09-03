@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.concurrent.CompletableFuture;
 
 import static org.starSlayer.Main.connect;
@@ -81,15 +82,15 @@ public class User {
         try {
             Connection conn = connect();
             assert conn != null;
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
             statement.setString(1, username);
-            String hash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
-            statement.setString(2, hash);
             statement.execute();
-            try (var rs = statement.executeQuery()) {
-                return rs.next();
-            } catch (Exception _) {
-                return false;
+            ResultSet rs = statement.getResultSet();
+            String retrievedPassword = rs.getString("password");
+            BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), retrievedPassword);
+            conn.close();
+            if (result.verified) {
+                return true;
             }
         } catch (Exception _) {
         }
